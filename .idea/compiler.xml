@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="authentication-server" />
+        <module name="transactions-domain-api" />
+        <module name="api-gateway" />
+        <module name="transactions-business-api" />
+        <module name="branchs-domain-api" />
+        <module name="branchs-business-api" />
+        <module name="customers-domain-api" />
+        <module name="service-discovery" />
+        <module name="customers-business-api" />
+        <module name="accounts-business-api" />
+        <module name="accounts-domain-api" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tican-api-gateway" target="17" />
+      <module name="tican-audit-services-api" target="17" />
+      <module name="tican-authentication-server" target="17" />
+      <module name="tican-medical-products-business-api" target="17" />
+      <module name="tican-medical-products-domain-api" target="17" />
+      <module name="tican-medical-substances-business-api" target="17" />
+      <module name="tican-medical-substances-domain-api" target="17" />
+      <module name="tican-oauth2-registered-clients-business-api" target="17" />
+      <module name="tican-oauth2-registered-clients-domain-api" target="17" />
+      <module name="tican-users-business-api" target="17" />
+      <module name="tican-users-domain-api" target="17" />
+      <module name="users-domain-api" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="accounts-business-api" options="-parameters" />
+      <module name="accounts-domain-api" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="authentication-server" options="-parameters" />
+      <module name="branchs-business-api" options="-parameters" />
+      <module name="branchs-domain-api" options="-parameters" />
+      <module name="customers-business-api" options="-parameters" />
+      <module name="customers-domain-api" options="-parameters" />
+      <module name="service-discovery" options="-parameters" />
+      <module name="tican-api-gateway" options="-parameters" />
+      <module name="tican-audit-services-api" options="-parameters" />
+      <module name="tican-authentication-server" options="-parameters" />
+      <module name="tican-medical-products-business-api" options="-parameters" />
+      <module name="tican-medical-products-domain-api" options="-parameters" />
+      <module name="tican-medical-substances-business-api" options="-parameters" />
+      <module name="tican-medical-substances-domain-api" options="-parameters" />
+      <module name="tican-oauth2-registered-clients-business-api" options="-parameters" />
+      <module name="tican-oauth2-registered-clients-domain-api" options="-parameters" />
+      <module name="tican-users-business-api" options="-parameters" />
+      <module name="tican-users-domain-api" options="-parameters" />
+      <module name="transactions-business-api" options="-parameters" />
+      <module name="transactions-domain-api" options="-parameters" />
+      <module name="users-domain-api" options="-parameters" />
+    </option>
+  </component>
+</project>

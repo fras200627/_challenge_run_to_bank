@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/workspace/01.cloud/project-api-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/01.cloud/project-service-discovery/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/01.cloud/project-service-discovery/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/02.authentication.server/project-authentication-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/03.branchs/project-branchs-business-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/03.branchs/project-branchs-domain-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/03.registered.clients.oauth2/project-tican-oauth2-registered-clients-business/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/03.registered.clients.oauth2/project-tican-oauth2-registered-clients-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/04.customers/project-customers-business-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/04.customers/project-customers-domain-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/04.users.oauth2/project-tican-users-business/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/04.users.oauth2/project-tican-users-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/05.accounts/project-accounts-business-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/05.accounts/project-accounts-domain-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/05.medical.substances/project-tican-substances-business-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/05.medical.substances/project-tican-substances-domain-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/06.medical.products/project-tican-products-business-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/06.medical.products/project-tican-products-domain-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/06.transactions/project-transactions-business-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/06.transactions/project-transactions-domain-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/workspace/07.audit.services/project-tican-audit-services-api/src/main/java" charset="UTF-8" />
+  </component>
+</project>

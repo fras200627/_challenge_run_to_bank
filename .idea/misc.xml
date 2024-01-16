@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/workspace/01.cloud/project-tican-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/01.cloud/project-tican-service-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/04.users.oauth2/project-tican-users-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/04.users.oauth2/project-tican-users-business/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/07.audit.services/project-tican-audit-services-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/06.medical.products/project-tican-products-domain-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/06.medical.products/project-tican-products-business-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/05.medical.substances/project-tican-substances-domain-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/05.medical.substances/project-tican-substances-business-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/02.authentication.server/project-tican-authentication-server/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/03.registered.clients.oauth2/project-tican-oauth2-registered-clients-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/03.registered.clients.oauth2/project-tican-oauth2-registered-clients-business/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/01.cloud/project-service-discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/01.cloud/project-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/02.authentication.server/project-authentication-server/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/04.customers/project-customers-domain-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/03.branchs/project-branchs-domain-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/03.branchs/project-branchs-business-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/04.customers/project-customers-business-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/05.accounts/project-accounts-domain-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/05.accounts/project-accounts-business-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/06.transactions/project-transactions-domain-api/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/06.transactions/project-transactions-business-api/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/workspace/01.cloud/project-tican-api-gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/02.authentication.server/project-tican-authentication-server/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/04.users.oauth2/project-tican-users-business/pom.xml" />
+        <option value="$PROJECT_DIR$/workspace/04.users.oauth2/project-tican-users-domain/pom.xml" />
+      </set>
+    </option>
+    <option name="workspaceImportForciblyTurnedOn" value="true" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="jdk-17.0.9" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

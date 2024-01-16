@@ -1,0 +1,2718 @@
+{
+	"info": {
+		"_postman_id": "e210b380-0502-4df5-834e-52e91fa6eadc",
+		"name": "Project Challenge Run the Bank",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6640495",
+		"_collection_link": "https://galactic-desert-57790.postman.co/workspace/tican~ff03dcf4-749e-436d-be35-b5ec435afd80/collection/6640495-e210b380-0502-4df5-834e-52e91fa6eadc?action=share&source=collection_link&creator=6640495"
+	},
+	"item": [
+		{
+			"name": "Roteiro Run the Bank",
+			"item": [
+				{
+					"name": "get Authentication Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin-master",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "client.read client.write client.root",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/authentication-server/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication-server",
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Branchs",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTU1MTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NzMxNiwiaWF0IjoxNzA1MzU1NTE2fQ.hVirvY1fHuuzZ_tBSypgsM_pUmH9da0p77vuBCELn1RUndRvAlInwlqwFtJioq5yMmaUT_LLuy3hBLE-7HtNBO2EovjljlTKtqsKute_Tbkj-jwfD6QIW1cgNGL6w-eeRjEe0zIhllAk20_oKwvTX9fxvDG4GwOCyhO6XfP4JSFhggz3ijRaBNvwDYFV-tDNoILNxJx46S6PTd1zmuShAfFdgP6rXXwfEZA6xCNj3RwRhHBZopp_GB7JgnXKDy_U-XyBBl3xO9H8O9Es3eOep4G7DD83YdQQVUkAlHtGXYJoUnw7OwSwhTUz2sUnPK3_yeDutlB5h-Dn8SvjAHxlCQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/branchs-business-api/branchs/v1/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"branchs-business-api",
+								"branchs",
+								"v1",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTU1MTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NzMxNiwiaWF0IjoxNzA1MzU1NTE2fQ.hVirvY1fHuuzZ_tBSypgsM_pUmH9da0p77vuBCELn1RUndRvAlInwlqwFtJioq5yMmaUT_LLuy3hBLE-7HtNBO2EovjljlTKtqsKute_Tbkj-jwfD6QIW1cgNGL6w-eeRjEe0zIhllAk20_oKwvTX9fxvDG4GwOCyhO6XfP4JSFhggz3ijRaBNvwDYFV-tDNoILNxJx46S6PTd1zmuShAfFdgP6rXXwfEZA6xCNj3RwRhHBZopp_GB7JgnXKDy_U-XyBBl3xO9H8O9Es3eOep4G7DD83YdQQVUkAlHtGXYJoUnw7OwSwhTUz2sUnPK3_yeDutlB5h-Dn8SvjAHxlCQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/customers-business-api/customers/v1/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"customers-business-api",
+								"customers",
+								"v1",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Account",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTU1MTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NzMxNiwiaWF0IjoxNzA1MzU1NTE2fQ.hVirvY1fHuuzZ_tBSypgsM_pUmH9da0p77vuBCELn1RUndRvAlInwlqwFtJioq5yMmaUT_LLuy3hBLE-7HtNBO2EovjljlTKtqsKute_Tbkj-jwfD6QIW1cgNGL6w-eeRjEe0zIhllAk20_oKwvTX9fxvDG4GwOCyhO6XfP4JSFhggz3ijRaBNvwDYFV-tDNoILNxJx46S6PTd1zmuShAfFdgP6rXXwfEZA6xCNj3RwRhHBZopp_GB7JgnXKDy_U-XyBBl3xO9H8O9Es3eOep4G7DD83YdQQVUkAlHtGXYJoUnw7OwSwhTUz2sUnPK3_yeDutlB5h-Dn8SvjAHxlCQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"branchId\": 1501,\r\n    \"customerId\": 111002,\r\n    \"accountBalance\": 1000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/accounts-domain-api/accounts/v1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"accounts-domain-api",
+								"accounts",
+								"v1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Accounts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTU1MTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NzMxNiwiaWF0IjoxNzA1MzU1NTE2fQ.hVirvY1fHuuzZ_tBSypgsM_pUmH9da0p77vuBCELn1RUndRvAlInwlqwFtJioq5yMmaUT_LLuy3hBLE-7HtNBO2EovjljlTKtqsKute_Tbkj-jwfD6QIW1cgNGL6w-eeRjEe0zIhllAk20_oKwvTX9fxvDG4GwOCyhO6XfP4JSFhggz3ijRaBNvwDYFV-tDNoILNxJx46S6PTd1zmuShAfFdgP6rXXwfEZA6xCNj3RwRhHBZopp_GB7JgnXKDy_U-XyBBl3xO9H8O9Es3eOep4G7DD83YdQQVUkAlHtGXYJoUnw7OwSwhTUz2sUnPK3_yeDutlB5h-Dn8SvjAHxlCQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"accounts-business-api",
+								"accounts",
+								"v1",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Account Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTg3MTcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MDUxNywiaWF0IjoxNzA1MzU4NzE3fQ.Kx9h9LALWDH2ReDaUoRGBZ0ym9Hhtm0w6BtmVj2GmvWyftr31OViHeOrYuL1SsmONrGleBWhXKZvf82etlS1FqRagAWU3jW_BsRY-9pOEx0D9toliAdG8DVk7C4jfWEfCWL33M0e9QnOtygHTWFpwQtQexlvQQ4d8XjQTV7g0oEeV0okQAbQOvQ8uhIMn4xCFwuo6Tj62cXakGkZwKqzbuLT7pVVPsdZ7D8t3ZlhVMvIzUhi95qRjJqMpCp29qUOyi-WQQRTezg07RhLoJhAux8ImDE7cFCIDMHo-1E4JP71JG3PyTER4BA6rKjjLfHOg6gNpm2lZxnCL19yVVAYVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findById?accountId=222001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"accounts-business-api",
+								"accounts",
+								"v1",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "accountId",
+									"value": "222001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Execute Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTg3MTcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MDUxNywiaWF0IjoxNzA1MzU4NzE3fQ.Kx9h9LALWDH2ReDaUoRGBZ0ym9Hhtm0w6BtmVj2GmvWyftr31OViHeOrYuL1SsmONrGleBWhXKZvf82etlS1FqRagAWU3jW_BsRY-9pOEx0D9toliAdG8DVk7C4jfWEfCWL33M0e9QnOtygHTWFpwQtQexlvQQ4d8XjQTV7g0oEeV0okQAbQOvQ8uhIMn4xCFwuo6Tj62cXakGkZwKqzbuLT7pVVPsdZ7D8t3ZlhVMvIzUhi95qRjJqMpCp29qUOyi-WQQRTezg07RhLoJhAux8ImDE7cFCIDMHo-1E4JP71JG3PyTER4BA6rKjjLfHOg6gNpm2lZxnCL19yVVAYVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionType\": \"PIX\",\r\n    \"transactionDescription\": \"teste de envio\",\r\n    \"accountIdOrigin\": 222001,\r\n    \"accountIdDestination\": 222003,\r\n    \"transactionValue\": 100.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/transactions-domain-api/transactions/v1/executeTransaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"transactions-domain-api",
+								"transactions",
+								"v1",
+								"executeTransaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Transactions",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNjEwMjcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MjgyNywiaWF0IjoxNzA1MzYxMDI3fQ.lGGNbs6wd5PRYZX7c38lYc6B-QAmJhOBBI8IbhbUJwCjIdPm1BmIT3PDALK86U6hsSSWVDbP1mFoLhi2slW_NgJQUINqFGXxcwsOmXM-NBc63L_bgJi6DYYZuj2nDxyjqIHGJmpv3FjB4Oig93JoiZHVsEfp8SUhGAlK79dIqfJUBmjwMTg8uKoqcmA4FkrSedZHOXeOd7YhcaUXZJO987z9MOaqHgD0cfdnAwBxfdbp1CZfHFjC4Wou6pcOTuNYaplC1QeCO5ksK2X_LT8cXpkSaTeNLa72KB1_HtfNR6RnwyK96WlXh_NhEp0EAkj40NzNhqizNB5jp3BH6awWRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/transactions-business-api/transactions/v1/findAll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"transactions-business-api",
+								"transactions",
+								"v1",
+								"findAll"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find By Transaction Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNjEwMjcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MjgyNywiaWF0IjoxNzA1MzYxMDI3fQ.lGGNbs6wd5PRYZX7c38lYc6B-QAmJhOBBI8IbhbUJwCjIdPm1BmIT3PDALK86U6hsSSWVDbP1mFoLhi2slW_NgJQUINqFGXxcwsOmXM-NBc63L_bgJi6DYYZuj2nDxyjqIHGJmpv3FjB4Oig93JoiZHVsEfp8SUhGAlK79dIqfJUBmjwMTg8uKoqcmA4FkrSedZHOXeOd7YhcaUXZJO987z9MOaqHgD0cfdnAwBxfdbp1CZfHFjC4Wou6pcOTuNYaplC1QeCO5ksK2X_LT8cXpkSaTeNLa72KB1_HtfNR6RnwyK96WlXh_NhEp0EAkj40NzNhqizNB5jp3BH6awWRg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3001/transactions-business-api/transactions/v1/findById?transactionId=9999000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"transactions-business-api",
+								"transactions",
+								"v1",
+								"findById"
+							],
+							"query": [
+								{
+									"key": "transactionId",
+									"value": "9999000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revert Transaction",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTg3MTcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MDUxNywiaWF0IjoxNzA1MzU4NzE3fQ.Kx9h9LALWDH2ReDaUoRGBZ0ym9Hhtm0w6BtmVj2GmvWyftr31OViHeOrYuL1SsmONrGleBWhXKZvf82etlS1FqRagAWU3jW_BsRY-9pOEx0D9toliAdG8DVk7C4jfWEfCWL33M0e9QnOtygHTWFpwQtQexlvQQ4d8XjQTV7g0oEeV0okQAbQOvQ8uhIMn4xCFwuo6Tj62cXakGkZwKqzbuLT7pVVPsdZ7D8t3ZlhVMvIzUhi95qRjJqMpCp29qUOyi-WQQRTezg07RhLoJhAux8ImDE7cFCIDMHo-1E4JP71JG3PyTER4BA6rKjjLfHOg6gNpm2lZxnCL19yVVAYVg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"transactionId\": 9999001,\r\n    \"transactionDescription\": \"teste de cancelamento\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/transactions-domain-api/transactions/v1/revertTransaction",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"transactions-domain-api",
+								"transactions",
+								"v1",
+								"revertTransaction"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Discovery",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/actuator/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API Gateway",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/actuator/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication Server",
+			"item": [
+				{
+					"name": "Health Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/authentication-server/health",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication-server",
+								"health"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actuator Info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/authentication-server/actuator/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication-server",
+								"actuator",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get JWT Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "admin-master",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "client.read client.write client.root",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/authentication-server/oauth2/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication-server",
+								"oauth2",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel  OAuth2 JWT Token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "ticanclient3",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "eyJ4NXQjUzI1NiI6InN5NFNncmRVdHFqUW1YRnMxX1dITWw2eHdNODNYaEJ1eFNNXzFIVTFrSkUiLCJraWQiOiJ0aWNhbiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJ0aWNhbmNsaWVudDMiLCJhdWQiOiJ0aWNhbmNsaWVudDMiLCJuYmYiOjE2OTg3NTE4MzQsInNjb3BlIjpbImNsaWVudC53cml0ZSJdLCJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MzAwMVwvdGljYW4tYXV0aGVudGljYXRpb24tc2VydmVyIiwiZXhwIjoxNjk4NzUzNjM0LCJpYXQiOjE2OTg3NTE4MzR9.nkPqiT2yNA6TnC0hbnQNCyvTbKtw2po6I-Q7wHeYWx2WhdowHBXSEOO6_-_B4obzka8DCSbNxj2iOQW1YAhZa36RMNGPLXTNevvTzL3l0F-KBFAefVg8kEV2kyxkthmTRyKDNRMlEiQgp4CBcq7b4YWCNdmR8MvN6x1292BUvlngu5fdNlP7wZBzUoJBXRbpwVN0xOiffMClz15lYmtLBy94O3U5PIp5zZt3P-U2arkpBl99ak6FM6a8d_wpvWQa0_Q9bsKRJgCOjvnohfAUMDTkIMxKb70CxYTDl7Wll1yqHBOylgsw1D4hIKw8JDqFVNhqp8wsB8iYTopBIeG2Jw",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3001/tican-authentication-server/oauth2/revoke",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"tican-authentication-server",
+								"oauth2",
+								"revoke"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get Auth JWT Public Key",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/authentication-server/oauth2/jwks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"authentication-server",
+								"oauth2",
+								"jwks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Branchs",
+			"item": [
+				{
+					"name": "Branchs Domain API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/branchs-domain-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-domain-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/branchs-domain-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-domain-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Branch",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyMzYwMjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTIzNzgyNSwiaWF0IjoxNzA1MjM2MDI1fQ.i3JWJKyZrP5nxE080zd1t39ZuZTwEAbZS2zqUSel82-L1n2fzd4VsICOtzamW7Lks3RbD7OEgxVV4FtfPLJVcJpcoK0C5S3mnVdT4Vb8F1onm9G0nHSILPIEhuXQlxwYLrZrkHx6W9p51xNROdFAK9TifBbzJzgEXperdVHC_r_ESI4FCSaMfqEimhZOJ7BzgRWVSIZDoGC66qqmRTa7Mbs6ZDxWjLcitqB8FB_qfazBszxTPLcFYpUXlNBj9nc82YBxO8pr-E0dpnDi4NYsZV2LUP5ENev8yIGWz-xPokImtSSNhzMU-7qd6X2wiXxAeVBqMMRAxfOK3WP-opbc7w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"branchName\": \"ag. MORUMBI\",\r\n\t\"branchCity\": \"são paulo\",\r\n    \"branchState\": \"SP\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/branchs-domain-api/branchs/v1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-domain-api",
+										"branchs",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Branch",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyMzYwMjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTIzNzgyNSwiaWF0IjoxNzA1MjM2MDI1fQ.i3JWJKyZrP5nxE080zd1t39ZuZTwEAbZS2zqUSel82-L1n2fzd4VsICOtzamW7Lks3RbD7OEgxVV4FtfPLJVcJpcoK0C5S3mnVdT4Vb8F1onm9G0nHSILPIEhuXQlxwYLrZrkHx6W9p51xNROdFAK9TifBbzJzgEXperdVHC_r_ESI4FCSaMfqEimhZOJ7BzgRWVSIZDoGC66qqmRTa7Mbs6ZDxWjLcitqB8FB_qfazBszxTPLcFYpUXlNBj9nc82YBxO8pr-E0dpnDi4NYsZV2LUP5ENev8yIGWz-xPokImtSSNhzMU-7qd6X2wiXxAeVBqMMRAxfOK3WP-opbc7w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"branchId\": \"1502\",\r\n\"branchName\": \"ag. STO AMARO\",\r\n\"branchCity\": \"são paulo\",\r\n\"branchState\": \"SP\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/branchs-domain-api/branchs/v1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-domain-api",
+										"branchs",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Branchs Business API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzQxNzEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNTk3MSwiaWF0IjoxNzA1MzM0MTcxfQ.ei5fpYY6WDoL92YDONUNON8i_lplByLi_ozddoFBMf84my3JSYAD3WlRRYt7vDVYY8kNz9XnckvJ_G8h_Fmf-fB2npLZ0fQeK1NmossPq9P3vYgm-ov4R2S4olpd7zRQDPFPYT8rR4NoMGlkwRNUHETtYin_TZpXjJ4tQc6dCsCSKsngdQXkw51RIh-lgJ4NaTCR_oMO8-5QPgjD5XtttaYHJ68TJU28lh4x1Rc6-d7knux_dyiNk90f9d7qJ9eL9ST7BCUN2kq6wiVPHyurQOJ4I9_OwVlDc88PWippgX_ziP5D5C304_VGpURMe3GNUgvHWS_dMcTPTSsm3p1o4g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/branchs/v1/findAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"branchs",
+										"v1",
+										"findAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyMzYwMjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTIzNzgyNSwiaWF0IjoxNzA1MjM2MDI1fQ.i3JWJKyZrP5nxE080zd1t39ZuZTwEAbZS2zqUSel82-L1n2fzd4VsICOtzamW7Lks3RbD7OEgxVV4FtfPLJVcJpcoK0C5S3mnVdT4Vb8F1onm9G0nHSILPIEhuXQlxwYLrZrkHx6W9p51xNROdFAK9TifBbzJzgEXperdVHC_r_ESI4FCSaMfqEimhZOJ7BzgRWVSIZDoGC66qqmRTa7Mbs6ZDxWjLcitqB8FB_qfazBszxTPLcFYpUXlNBj9nc82YBxO8pr-E0dpnDi4NYsZV2LUP5ENev8yIGWz-xPokImtSSNhzMU-7qd6X2wiXxAeVBqMMRAxfOK3WP-opbc7w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/branchs/v1/findById?branchId=1504",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"branchs",
+										"v1",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "branchId",
+											"value": "1504"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check exists Branch",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMjAzODksInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMyMjE4OSwiaWF0IjoxNzA1MzIwMzg5fQ.JzH2MukPcBKSvWj-qoTm2xVDiciHvTsbG_Je6C2Tqa_CrCOWYTj1xWIly7Iu5Q6dTfK7FMeIoPktOkz2IR_oiDANmZYqJ2ttttDDrdUB4qmbWRZ0ZD9CVcjCVXaqaycyC4znEoY4UJsv81_YTUHORiHw5wuQRUPgJdUWHbK0QayKJshDGlqCQWPVUXr2Va-LMYtxmA2tG0swAone-twgb84XaWjG-B1fcoEyZ_QY8NesvMyu0wTAYjMrLswoVWffuit-OXXj96bm84Pzcj_TgaqEw7tMSrXtd1gXp4gn7htOt6qmp1Ogg7ptaqGx2XUkrrfpXsttwxvd1qhyOnS-vA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/branchs/v1/existsBranch?branchId=1501",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"branchs",
+										"v1",
+										"existsBranch"
+									],
+									"query": [
+										{
+											"key": "branchId",
+											"value": "1501"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Branch Name",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzIyNjYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNDA2NiwiaWF0IjoxNzA1MzMyMjY2fQ.awTq86HN349Zdb3YXLK_2WIlQXWNDbl8u9fmK-KGkiU9oQxH3tqjsNAyg7O2UhqQeBHdd3OXRpjkP-xUz7QlDW85ZVwkKmOXf9_jVJfo5N74eoNurs2_Wbhc-cPd1J0Z5yDLVw9q-1iZ6Ri77TNuhWIZXXMUoCiz5c-BBfdflYGaR1gDo-btX4c25XyvoX6XOCdRJ_YgW43ERPJnwtedZ0J7Pk4TqBppo7YSbdDaZCHA83STgOliOlOq0MsONavS2VbwfGRcnNkz5cyBz-QP4TnsIwoCgdpVsVObt6MMxi-7MiAzGOjUaknTm16ABvdC4NK0McIfl8h3xAeM4PfYfg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/branchs/v1/getBranchNameById?branchId=1501",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"branchs",
+										"v1",
+										"getBranchNameById"
+									],
+									"query": [
+										{
+											"key": "branchId",
+											"value": "1501"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Pageable",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyMzYwMjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTIzNzgyNSwiaWF0IjoxNzA1MjM2MDI1fQ.i3JWJKyZrP5nxE080zd1t39ZuZTwEAbZS2zqUSel82-L1n2fzd4VsICOtzamW7Lks3RbD7OEgxVV4FtfPLJVcJpcoK0C5S3mnVdT4Vb8F1onm9G0nHSILPIEhuXQlxwYLrZrkHx6W9p51xNROdFAK9TifBbzJzgEXperdVHC_r_ESI4FCSaMfqEimhZOJ7BzgRWVSIZDoGC66qqmRTa7Mbs6ZDxWjLcitqB8FB_qfazBszxTPLcFYpUXlNBj9nc82YBxO8pr-E0dpnDi4NYsZV2LUP5ENev8yIGWz-xPokImtSSNhzMU-7qd6X2wiXxAeVBqMMRAxfOK3WP-opbc7w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"page_number\": 1,\r\n\"page_size\": 10,\r\n\"page_sort_field\": \"branchName\",\r\n\"page_sort_order\": \"ASC\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/branchs/v1/findByPageable",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"branchs",
+										"v1",
+										"findByPageable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Filters (and Pageable)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyMzYwMjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTIzNzgyNSwiaWF0IjoxNzA1MjM2MDI1fQ.i3JWJKyZrP5nxE080zd1t39ZuZTwEAbZS2zqUSel82-L1n2fzd4VsICOtzamW7Lks3RbD7OEgxVV4FtfPLJVcJpcoK0C5S3mnVdT4Vb8F1onm9G0nHSILPIEhuXQlxwYLrZrkHx6W9p51xNROdFAK9TifBbzJzgEXperdVHC_r_ESI4FCSaMfqEimhZOJ7BzgRWVSIZDoGC66qqmRTa7Mbs6ZDxWjLcitqB8FB_qfazBszxTPLcFYpUXlNBj9nc82YBxO8pr-E0dpnDi4NYsZV2LUP5ENev8yIGWz-xPokImtSSNhzMU-7qd6X2wiXxAeVBqMMRAxfOK3WP-opbc7w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"page_settings\": {\r\n    \"page_number\": 1,\r\n    \"page_size\": 10,\r\n    \"page_sort_field\": \"branchId\",\r\n    \"page_sort_order\": \"ASC\"\r\n  },\r\n  \"branchName\": \"granja\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/branchs-business-api/branchs/v1/findByFilters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"branchs-business-api",
+										"branchs",
+										"v1",
+										"findByFilters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Customers Domain API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/customers-domain-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-domain-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/customers-domain-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-domain-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNTk2MTgsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI2MTQxOCwiaWF0IjoxNzA1MjU5NjE4fQ.Nytx6Q0NDzn1rfLupAx6Ayw5pqlVlMRZiBWJa_u0ltvokFc3xfFU0IPvd9Ix9CUu8egfYKNT4uZvCWTHHRDWlTq2UfWhJewFHYbR4D0lBMaGzEK9rdxH_ikTsH4TuKBAAFKhjTtTg-1g2NmdmZWc_1EBQ5P0R994ftCqIlvSOtuOHG4IAgg0k3V9QNUgK0yyIG7Do3qM79S0rzZ7lFWg3j703Q3fXY6pbZsd7iwq_ROBQ9Tfr76__pzFguGiYtoV7WvuPrFr7cveCEmmkF1J_roE1LH2r0ZJyS_L8GYdIqNga6ocIEoCrEvpID15zXQ4-Qqio4W1dGf4T2BnsxF9cQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerName\": \"name name name\",\r\n    \"customerType\": \"J\",\r\n    \"customerDocument\": \"74.162953/000192\",\r\n    \"customerAddress\": \"customerAddress smsmsmsmmsmsmsms\",\r\n    \"customerPassword\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers-domain-api/customers/v1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-domain-api",
+										"customers",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNTE1MDEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI1MzMwMSwiaWF0IjoxNzA1MjUxNTAxfQ.27-BfLmTCkUJl6D4SHjVf8IMxPJXFDILR7WAoNBBZXcDaurxe85fb3W2meUIIy9BtmomLg1T2J-rRr3M2uR-Ln6lNExjPAjfas9EU_YPdAvqUaRxN_n-G7g-y7MN_iIARytKHHgJN8pi-d4AMoPZliJpjws6vQC8Hw7ATG6-F46EE06GwTtoJGG3-7v5oNV1E3Ab3-hcgp3l7-DTBfDWZ6zhNFhtdUb03Y-lntQ8Inbi3sX7vRA8lhDsXuyXENN5_vZdDjZ01Y-Wb_yMRufd_OK2X1NVg9ccuALG7XkNGQlyhTwsdKyExCY7zlNI5PK3NN6cJ5rQVCX8G1InAXKGnw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": 8,\r\n    \"customerName\": \"customer nr 8\",\r\n    \"customerAddress\": \"customerAddress nr 8\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers-domain-api/customers/v1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-domain-api",
+										"customers",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Customer Password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNTE1MDEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI1MzMwMSwiaWF0IjoxNzA1MjUxNTAxfQ.27-BfLmTCkUJl6D4SHjVf8IMxPJXFDILR7WAoNBBZXcDaurxe85fb3W2meUIIy9BtmomLg1T2J-rRr3M2uR-Ln6lNExjPAjfas9EU_YPdAvqUaRxN_n-G7g-y7MN_iIARytKHHgJN8pi-d4AMoPZliJpjws6vQC8Hw7ATG6-F46EE06GwTtoJGG3-7v5oNV1E3Ab3-hcgp3l7-DTBfDWZ6zhNFhtdUb03Y-lntQ8Inbi3sX7vRA8lhDsXuyXENN5_vZdDjZ01Y-Wb_yMRufd_OK2X1NVg9ccuALG7XkNGQlyhTwsdKyExCY7zlNI5PK3NN6cJ5rQVCX8G1InAXKGnw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": 8,\r\n    \"customerOldPassword\": \"123456\",\r\n    \"customerNewPassword\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers-domain-api/customers/v1/change-password",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-domain-api",
+										"customers",
+										"v1",
+										"change-password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Customer Status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNTE1MDEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI1MzMwMSwiaWF0IjoxNzA1MjUxNTAxfQ.27-BfLmTCkUJl6D4SHjVf8IMxPJXFDILR7WAoNBBZXcDaurxe85fb3W2meUIIy9BtmomLg1T2J-rRr3M2uR-Ln6lNExjPAjfas9EU_YPdAvqUaRxN_n-G7g-y7MN_iIARytKHHgJN8pi-d4AMoPZliJpjws6vQC8Hw7ATG6-F46EE06GwTtoJGG3-7v5oNV1E3Ab3-hcgp3l7-DTBfDWZ6zhNFhtdUb03Y-lntQ8Inbi3sX7vRA8lhDsXuyXENN5_vZdDjZ01Y-Wb_yMRufd_OK2X1NVg9ccuALG7XkNGQlyhTwsdKyExCY7zlNI5PK3NN6cJ5rQVCX8G1InAXKGnw",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerId\": 8,\r\n    \"customerStatus\": \"ATIVO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers-domain-api/customers/v1/change-status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-domain-api",
+										"customers",
+										"v1",
+										"change-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Customers Business API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzQxNzEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNTk3MSwiaWF0IjoxNzA1MzM0MTcxfQ.ei5fpYY6WDoL92YDONUNON8i_lplByLi_ozddoFBMf84my3JSYAD3WlRRYt7vDVYY8kNz9XnckvJ_G8h_Fmf-fB2npLZ0fQeK1NmossPq9P3vYgm-ov4R2S4olpd7zRQDPFPYT8rR4NoMGlkwRNUHETtYin_TZpXjJ4tQc6dCsCSKsngdQXkw51RIh-lgJ4NaTCR_oMO8-5QPgjD5XtttaYHJ68TJU28lh4x1Rc6-d7knux_dyiNk90f9d7qJ9eL9ST7BCUN2kq6wiVPHyurQOJ4I9_OwVlDc88PWippgX_ziP5D5C304_VGpURMe3GNUgvHWS_dMcTPTSsm3p1o4g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/findAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"findAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find By Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNzA0NjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI3MjI2NSwiaWF0IjoxNzA1MjcwNDY1fQ.VNDu3teclLOF_Ohe8vDn5I32vAqdf3DfAG4TUduX_Eth8kTXrmqyFfDm4k5Mh_-Q0OpjSgxfENmq8OExTFmmeyspQh4VD7YE80KAOPQkdjrSpRUNYdrjUq3D1VjBlfUUHadSohkONbKksLOGTTtWzSFTSfdQQBS9g6jD24R2U-zc8Bpf1gvS9NSMXfZlcMirlXxvPB0a0ySoyZrKjUKygsZ1s60Fs31u0wfceJe7UEY-m7k7Cd0uLKMQIL4RQx3gm-g9asSOEG2snu9cxiQi3zy41vT4lXg3ncKIKGkCr1NryDHyZjOURScH7Lf-U9MAwIQGqRX5DZCEoYx_SNIQZg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/findById?customerId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check exists Customer",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMjI2MjEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMyNDQyMSwiaWF0IjoxNzA1MzIyNjIxfQ.poWfYNsBeZ4154Kjz_XeUU7zKXF3jkAImmUFt3PTrtkQoqvPLkCuvWGpcraZwVqShSh4Q-LYy9GalgyOXIpkJIjby5c_lP4rNfo4xyq0_8YuQ237hdnvpmqQE2cSNlZdhBmC3OfE5obBfy9RzNHSh9DsdVYDypHA835pAcNLxrylaoCYDi4cw1Eg4D7c8VJqVTOkZt3suzWOBUXyPjfrKWCHAUW33LciF0zFL39q6UziLdMlJCq9PeSDtkjrGl3Amfux3U95yipRGkuMg6LsEPi635XD-tPBIiTu3D0Iw799mK4c5eWxdK5VL_zqsKRmOm8kQ0ZXAm1mo4oot24e1g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/existsCustomer?customerId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"existsCustomer"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Customer Name",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzIyNjYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNDA2NiwiaWF0IjoxNzA1MzMyMjY2fQ.awTq86HN349Zdb3YXLK_2WIlQXWNDbl8u9fmK-KGkiU9oQxH3tqjsNAyg7O2UhqQeBHdd3OXRpjkP-xUz7QlDW85ZVwkKmOXf9_jVJfo5N74eoNurs2_Wbhc-cPd1J0Z5yDLVw9q-1iZ6Ri77TNuhWIZXXMUoCiz5c-BBfdflYGaR1gDo-btX4c25XyvoX6XOCdRJ_YgW43ERPJnwtedZ0J7Pk4TqBppo7YSbdDaZCHA83STgOliOlOq0MsONavS2VbwfGRcnNkz5cyBz-QP4TnsIwoCgdpVsVObt6MMxi-7MiAzGOjUaknTm16ABvdC4NK0McIfl8h3xAeM4PfYfg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/getCustomerNameById?customerId=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"getCustomerNameById"
+									],
+									"query": [
+										{
+											"key": "customerId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find By Document",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNzI0MzYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI3NDIzNiwiaWF0IjoxNzA1MjcyNDM2fQ.LLB59qlXakTrZItCoYrwnf1grDqtgxapJCv7uDIK7xWStUJhvKCd-SgAsCKZueWg_73QLJqT-qgcg8M_VR3Qq8gWeEznudoHaCkQwl7uEF-aBaDZSwJIbhRpEPslcwE_dxkLkrpgUw79_3MAOPLzSg-d_vLpBjuARBzXXtX0dqzIpoOK9V258uvAHMr9dPko9n5beRHK1PR_Qo4XTS53s7LtW-RD-t1SiBKMPaXnXlKbWTENq7iLxVunQiTOx0XRpHoJ-2wzHjl4pq0yofQHrFSlAWXWXn0sk_zqS-7zFoNLHKn-admWT0e7CWOsrE94r9CJ8Bm04dmGIiiOHnrnkQ",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/findByDocument?customerDocument=83.577.780/0001-64&customerType=J",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"findByDocument"
+									],
+									"query": [
+										{
+											"key": "customerDocument",
+											"value": "83.577.780/0001-64"
+										},
+										{
+											"key": "customerType",
+											"value": "J"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Pageable",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNzA0NjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI3MjI2NSwiaWF0IjoxNzA1MjcwNDY1fQ.VNDu3teclLOF_Ohe8vDn5I32vAqdf3DfAG4TUduX_Eth8kTXrmqyFfDm4k5Mh_-Q0OpjSgxfENmq8OExTFmmeyspQh4VD7YE80KAOPQkdjrSpRUNYdrjUq3D1VjBlfUUHadSohkONbKksLOGTTtWzSFTSfdQQBS9g6jD24R2U-zc8Bpf1gvS9NSMXfZlcMirlXxvPB0a0ySoyZrKjUKygsZ1s60Fs31u0wfceJe7UEY-m7k7Cd0uLKMQIL4RQx3gm-g9asSOEG2snu9cxiQi3zy41vT4lXg3ncKIKGkCr1NryDHyZjOURScH7Lf-U9MAwIQGqRX5DZCEoYx_SNIQZg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"page_number\": 1,\r\n\"page_size\": 10,\r\n\"page_sort_field\": \"customerName\",\r\n\"page_sort_order\": \"ASC\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/findByPageable",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"findByPageable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Filters (and Pageable)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUyNzA0NjUsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTI3MjI2NSwiaWF0IjoxNzA1MjcwNDY1fQ.VNDu3teclLOF_Ohe8vDn5I32vAqdf3DfAG4TUduX_Eth8kTXrmqyFfDm4k5Mh_-Q0OpjSgxfENmq8OExTFmmeyspQh4VD7YE80KAOPQkdjrSpRUNYdrjUq3D1VjBlfUUHadSohkONbKksLOGTTtWzSFTSfdQQBS9g6jD24R2U-zc8Bpf1gvS9NSMXfZlcMirlXxvPB0a0ySoyZrKjUKygsZ1s60Fs31u0wfceJe7UEY-m7k7Cd0uLKMQIL4RQx3gm-g9asSOEG2snu9cxiQi3zy41vT4lXg3ncKIKGkCr1NryDHyZjOURScH7Lf-U9MAwIQGqRX5DZCEoYx_SNIQZg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"page_settings\": {\r\n    \"page_number\": 1,\r\n    \"page_size\": 10,\r\n    \"page_sort_field\": \"customerId\",\r\n    \"page_sort_order\": \"ASC\"\r\n  },\r\n  \"customerStatus\": \"BLOQUEADO\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/customers-business-api/customers/v1/findByFilters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"customers-business-api",
+										"customers",
+										"v1",
+										"findByFilters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Accounts Domain API",
+					"item": [
+						{
+							"name": "Account Transactions",
+							"item": [
+								{
+									"name": "Check Account By Id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNDYxMTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM0NzkxNiwiaWF0IjoxNzA1MzQ2MTE2fQ.UtPEletrRnws-jUX9DIEdS6Tcn4nSpbpK4-ZhXXHlhIhpuFwqUOPeTCrjXtwtHci7WJc-l-M8gdAEfHLJ96okALxClH1AMVVK7O6ImIz0SHTKbVMuGrSSpfOCv3hStX3VD_kpEucARFqLdVT0_EJJkmYtvlD3fATTVKI5MU-LSy8YU8Au1yALzgWoKrWdir8JR-36xZ4mAuOyr7T3EKY14Kd3Opy3jA_sWA6F2sO8g_k8VEkCVLp98hrUIGmU3EsCSBDnE90zgqOOpxUJx2D-Lan44bQdH26aO7QlSB2jRf9U6oF6TO8FyAcA2yz7bP2chrLETtk47AbeF8r36xCaA",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/accounts-domain-api/accounts/v1/checkAccountById?accountId=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"accounts-domain-api",
+												"accounts",
+												"v1",
+												"checkAccountById"
+											],
+											"query": [
+												{
+													"key": "accountId",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Unlock Account By ID",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNDYxMTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM0NzkxNiwiaWF0IjoxNzA1MzQ2MTE2fQ.UtPEletrRnws-jUX9DIEdS6Tcn4nSpbpK4-ZhXXHlhIhpuFwqUOPeTCrjXtwtHci7WJc-l-M8gdAEfHLJ96okALxClH1AMVVK7O6ImIz0SHTKbVMuGrSSpfOCv3hStX3VD_kpEucARFqLdVT0_EJJkmYtvlD3fATTVKI5MU-LSy8YU8Au1yALzgWoKrWdir8JR-36xZ4mAuOyr7T3EKY14Kd3Opy3jA_sWA6F2sO8g_k8VEkCVLp98hrUIGmU3EsCSBDnE90zgqOOpxUJx2D-Lan44bQdH26aO7QlSB2jRf9U6oF6TO8FyAcA2yz7bP2chrLETtk47AbeF8r36xCaA",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/accounts-domain-api/accounts/v1/unlockAccountById?accountId=100001",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"accounts-domain-api",
+												"accounts",
+												"v1",
+												"unlockAccountById"
+											],
+											"query": [
+												{
+													"key": "accountId",
+													"value": "100001"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Lock Account By Start Debit",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNDYxMTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM0NzkxNiwiaWF0IjoxNzA1MzQ2MTE2fQ.UtPEletrRnws-jUX9DIEdS6Tcn4nSpbpK4-ZhXXHlhIhpuFwqUOPeTCrjXtwtHci7WJc-l-M8gdAEfHLJ96okALxClH1AMVVK7O6ImIz0SHTKbVMuGrSSpfOCv3hStX3VD_kpEucARFqLdVT0_EJJkmYtvlD3fATTVKI5MU-LSy8YU8Au1yALzgWoKrWdir8JR-36xZ4mAuOyr7T3EKY14Kd3Opy3jA_sWA6F2sO8g_k8VEkCVLp98hrUIGmU3EsCSBDnE90zgqOOpxUJx2D-Lan44bQdH26aO7QlSB2jRf9U6oF6TO8FyAcA2yz7bP2chrLETtk47AbeF8r36xCaA",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/accounts-domain-api/accounts/v1/lockAccountByStartDebit?accountId=100001&transactionValue=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"accounts-domain-api",
+												"accounts",
+												"v1",
+												"lockAccountByStartDebit"
+											],
+											"query": [
+												{
+													"key": "accountId",
+													"value": "100001"
+												},
+												{
+													"key": "transactionValue",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Execute Debit By Account Id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNDYxMTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM0NzkxNiwiaWF0IjoxNzA1MzQ2MTE2fQ.UtPEletrRnws-jUX9DIEdS6Tcn4nSpbpK4-ZhXXHlhIhpuFwqUOPeTCrjXtwtHci7WJc-l-M8gdAEfHLJ96okALxClH1AMVVK7O6ImIz0SHTKbVMuGrSSpfOCv3hStX3VD_kpEucARFqLdVT0_EJJkmYtvlD3fATTVKI5MU-LSy8YU8Au1yALzgWoKrWdir8JR-36xZ4mAuOyr7T3EKY14Kd3Opy3jA_sWA6F2sO8g_k8VEkCVLp98hrUIGmU3EsCSBDnE90zgqOOpxUJx2D-Lan44bQdH26aO7QlSB2jRf9U6oF6TO8FyAcA2yz7bP2chrLETtk47AbeF8r36xCaA",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/accounts-domain-api/accounts/v1/executeDebitByAccountId?accountId=100001&transactionValue=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"accounts-domain-api",
+												"accounts",
+												"v1",
+												"executeDebitByAccountId"
+											],
+											"query": [
+												{
+													"key": "accountId",
+													"value": "100001"
+												},
+												{
+													"key": "transactionValue",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Execute Credit By Account Id",
+									"request": {
+										"auth": {
+											"type": "bearer",
+											"bearer": [
+												{
+													"key": "token",
+													"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNDYxMTYsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM0NzkxNiwiaWF0IjoxNzA1MzQ2MTE2fQ.UtPEletrRnws-jUX9DIEdS6Tcn4nSpbpK4-ZhXXHlhIhpuFwqUOPeTCrjXtwtHci7WJc-l-M8gdAEfHLJ96okALxClH1AMVVK7O6ImIz0SHTKbVMuGrSSpfOCv3hStX3VD_kpEucARFqLdVT0_EJJkmYtvlD3fATTVKI5MU-LSy8YU8Au1yALzgWoKrWdir8JR-36xZ4mAuOyr7T3EKY14Kd3Opy3jA_sWA6F2sO8g_k8VEkCVLp98hrUIGmU3EsCSBDnE90zgqOOpxUJx2D-Lan44bQdH26aO7QlSB2jRf9U6oF6TO8FyAcA2yz7bP2chrLETtk47AbeF8r36xCaA",
+													"type": "string"
+												}
+											]
+										},
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:3001/accounts-domain-api/accounts/v1/executeCreditByAccountId?accountId=100001&transactionValue=1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "3001",
+											"path": [
+												"accounts-domain-api",
+												"accounts",
+												"v1",
+												"executeCreditByAccountId"
+											],
+											"query": [
+												{
+													"key": "accountId",
+													"value": "100001"
+												},
+												{
+													"key": "transactionValue",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/accounts-domain-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-domain-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/accounts-domain-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-domain-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzQxNzEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNTk3MSwiaWF0IjoxNzA1MzM0MTcxfQ.ei5fpYY6WDoL92YDONUNON8i_lplByLi_ozddoFBMf84my3JSYAD3WlRRYt7vDVYY8kNz9XnckvJ_G8h_Fmf-fB2npLZ0fQeK1NmossPq9P3vYgm-ov4R2S4olpd7zRQDPFPYT8rR4NoMGlkwRNUHETtYin_TZpXjJ4tQc6dCsCSKsngdQXkw51RIh-lgJ4NaTCR_oMO8-5QPgjD5XtttaYHJ68TJU28lh4x1Rc6-d7knux_dyiNk90f9d7qJ9eL9ST7BCUN2kq6wiVPHyurQOJ4I9_OwVlDc88PWippgX_ziP5D5C304_VGpURMe3GNUgvHWS_dMcTPTSsm3p1o4g",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"branchId\": 1503,\r\n    \"customerId\": 2,\r\n    \"accountBalance\": 1000.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/accounts-domain-api/accounts/v1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-domain-api",
+										"accounts",
+										"v1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Change Account Status",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTA1NjQsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1MjM2NCwiaWF0IjoxNzA1MzUwNTY0fQ.h4YDiSrhfwBfSVs9LEovBBZ9RchwdK25pvbNlR4dnhL2WTSie4npJr1lDXbEDHBH3hsLjRj_X6OkzOjxLeZt-pCmGN9iVnEoBIGZUkNEL6N5ve-A0WJRJicBk-R7uzOrtpGRMfeOcP0QaDhpBWQpQkjxzQzC8cCIzZ4BNwkr_0xAFomDoKVI4zX0wI1nXAa-g-SkQ3nZZVLjV4qCgu_O7iW1TwbtpLsJ7Q7gq86_7rleE8Nz0xJ65LeunsoFDIrxxUJwOSZp5PEM3tCBlAwe4ubUqOhEkGSaKA68KFYULV-Dmt0fyVQ07ojTIKUUk9teoDRmSGd-TXSNaUNn5Z-x_w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"accountId\": 100005,\r\n    \"accountStatus\": \"ATIVA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/accounts-domain-api/accounts/v1/change-status",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-domain-api",
+										"accounts",
+										"v1",
+										"change-status"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Accounts Business API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTA1NjQsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1MjM2NCwiaWF0IjoxNzA1MzUwNTY0fQ.h4YDiSrhfwBfSVs9LEovBBZ9RchwdK25pvbNlR4dnhL2WTSie4npJr1lDXbEDHBH3hsLjRj_X6OkzOjxLeZt-pCmGN9iVnEoBIGZUkNEL6N5ve-A0WJRJicBk-R7uzOrtpGRMfeOcP0QaDhpBWQpQkjxzQzC8cCIzZ4BNwkr_0xAFomDoKVI4zX0wI1nXAa-g-SkQ3nZZVLjV4qCgu_O7iW1TwbtpLsJ7Q7gq86_7rleE8Nz0xJ65LeunsoFDIrxxUJwOSZp5PEM3tCBlAwe4ubUqOhEkGSaKA68KFYULV-Dmt0fyVQ07ojTIKUUk9teoDRmSGd-TXSNaUNn5Z-x_w",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"accounts",
+										"v1",
+										"findAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find By Account Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTQ0NzMsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NjI3MywiaWF0IjoxNzA1MzU0NDczfQ.F2UevPnCbH1OvoCYVh2kFBLyYK__15vLS31mZ7rG6LjMdaluXQnd-FEIL-zfCo0b5FQXJAu7onST1YXxuhtWyUt74qmiJHr1HzzTu0bu5nf2KswzgsSquOR53gvhCTnjF2ZDPgPJFyNBECu9jpJqb4Djhr9LJ2JGa8dP1jyh59nM8Om65GUuWki-u39oaUMcH-Ts_SXowFyOAkmGBhfAg81Wbtio__O-amloeAar8TVe1LqoWRqKBzdMqrvPE-8IBV-9ds7v_QN802XRjgn8PIfse40TBGoQWidf6VhNw2rVdOOC3U49JLd9Qo9jTSXajyuvcVOKj8CiAL6UYDwmGg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findById?accountId=100007",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"accounts",
+										"v1",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "accountId",
+											"value": "100007"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find By Account Number",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzUwMDksInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNjgwOSwiaWF0IjoxNzA1MzM1MDA5fQ.2yKoGr7b3J4uWhNWYd9hS-KrzZ2jDyAW69RN4bSzRDaA6akH_rptwG7QeNkSdSmK_Ss_Zeq9z0WEDUHuZ-kGNuYEQOBYeI8YxI5FOJawRbLbk95RmrprPGMi6nafGXMcDpGsQjOecYB_znw7FMIJb9ZETXnMTstHLycyNFZ-c-jN3VWjiYyObKLUNM2Qjx0GftkjuU44B87w-BTDecvE8xE1djL7w9wvAsQfF5CenPNNPVj1CrQUjP9LEcIN5KlLY2iRsbuZxnlzbmSKpUYbCjVq-1Bkx1rPfEEuGNshKgmdjQU0VH8xoMTKD_KLtAkNGxqWcitpfBbazozzlV5mUg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findByAccountNumber?accountNumber=1501-100000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"accounts",
+										"v1",
+										"findByAccountNumber"
+									],
+									"query": [
+										{
+											"key": "accountNumber",
+											"value": "1501-100000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Pageable",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzUwMDksInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNjgwOSwiaWF0IjoxNzA1MzM1MDA5fQ.2yKoGr7b3J4uWhNWYd9hS-KrzZ2jDyAW69RN4bSzRDaA6akH_rptwG7QeNkSdSmK_Ss_Zeq9z0WEDUHuZ-kGNuYEQOBYeI8YxI5FOJawRbLbk95RmrprPGMi6nafGXMcDpGsQjOecYB_znw7FMIJb9ZETXnMTstHLycyNFZ-c-jN3VWjiYyObKLUNM2Qjx0GftkjuU44B87w-BTDecvE8xE1djL7w9wvAsQfF5CenPNNPVj1CrQUjP9LEcIN5KlLY2iRsbuZxnlzbmSKpUYbCjVq-1Bkx1rPfEEuGNshKgmdjQU0VH8xoMTKD_KLtAkNGxqWcitpfBbazozzlV5mUg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"page_number\": 1,\r\n\"page_size\": 10,\r\n\"page_sort_field\": \"accountNumber\",\r\n\"page_sort_order\": \"ASC\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findByPageable",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"accounts",
+										"v1",
+										"findByPageable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Filters (and Pageable)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzMzUwMDksInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTMzNjgwOSwiaWF0IjoxNzA1MzM1MDA5fQ.2yKoGr7b3J4uWhNWYd9hS-KrzZ2jDyAW69RN4bSzRDaA6akH_rptwG7QeNkSdSmK_Ss_Zeq9z0WEDUHuZ-kGNuYEQOBYeI8YxI5FOJawRbLbk95RmrprPGMi6nafGXMcDpGsQjOecYB_znw7FMIJb9ZETXnMTstHLycyNFZ-c-jN3VWjiYyObKLUNM2Qjx0GftkjuU44B87w-BTDecvE8xE1djL7w9wvAsQfF5CenPNNPVj1CrQUjP9LEcIN5KlLY2iRsbuZxnlzbmSKpUYbCjVq-1Bkx1rPfEEuGNshKgmdjQU0VH8xoMTKD_KLtAkNGxqWcitpfBbazozzlV5mUg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"page_settings\": {\r\n    \"page_number\": 1,\r\n    \"page_size\": 10,\r\n    \"page_sort_field\": \"accountId\",\r\n    \"page_sort_order\": \"ASC\"\r\n  },\r\n  \"accountStatus\": \"BLOQUEADA\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/accounts-business-api/accounts/v1/findByFilters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"accounts-business-api",
+										"accounts",
+										"v1",
+										"findByFilters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "Transactions Domain API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/transactions-domain-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-domain-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/transactions-domain-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-domain-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Execute Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTQ0NzMsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NjI3MywiaWF0IjoxNzA1MzU0NDczfQ.F2UevPnCbH1OvoCYVh2kFBLyYK__15vLS31mZ7rG6LjMdaluXQnd-FEIL-zfCo0b5FQXJAu7onST1YXxuhtWyUt74qmiJHr1HzzTu0bu5nf2KswzgsSquOR53gvhCTnjF2ZDPgPJFyNBECu9jpJqb4Djhr9LJ2JGa8dP1jyh59nM8Om65GUuWki-u39oaUMcH-Ts_SXowFyOAkmGBhfAg81Wbtio__O-amloeAar8TVe1LqoWRqKBzdMqrvPE-8IBV-9ds7v_QN802XRjgn8PIfse40TBGoQWidf6VhNw2rVdOOC3U49JLd9Qo9jTSXajyuvcVOKj8CiAL6UYDwmGg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"transactionType\": \"PIX\",\r\n    \"transactionDescription\": \"teste de envio\",\r\n    \"accountIdOrigin\": 100007,\r\n    \"accountIdDestination\": 100011,\r\n    \"transactionValue\": 100.00\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/transactions-domain-api/transactions/v1/executeTransaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-domain-api",
+										"transactions",
+										"v1",
+										"executeTransaction"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Revert Transaction",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNTM4ODEsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM1NTY4MSwiaWF0IjoxNzA1MzUzODgxfQ.eTe9zcMdwD85HVxjowDBLEQBcPH8Kq4NIAHI9nzHxoIM3tmlO2_yL8hnzpLgGxpWdsTrYsA5Dy5YQ8MiJykibuUA2olXZcHH3yZBBdm5AYYGL_bFwof-RS6jh3NqPO-TuD2YDnROp1r9KoEi8gi-iHU_rGOxkqMvN7KakFN9VHhZ5ZnttlFkYEvXI08QVQRnPt_gLiA7OPdp3D723f6HAZRseZbPqrc9ShZ5YTz4Mr3NcTSc1J2sxxf03pyBCeF9PsnymXUnMRN0rjBUKu8TXpEPizRVO1BnxGNy8kGxvp6abksFZ_IbRtoazKYwH83gzmAOIqHoh8asx87YD1JZFg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"transactionId\": 100007,\r\n    \"transactionDescription\": \"teste de envio\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3001/transactions-domain-api/transactions/v1/revertTransaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-domain-api",
+										"transactions",
+										"v1",
+										"revertTransaction"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transactions Business API",
+					"item": [
+						{
+							"name": "Health Check",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/transactions-business-api/health",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-business-api",
+										"health"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Actuator Info",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3001/transactions-business-api/actuator/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-business-api",
+										"actuator",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find All",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNjEwMjcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MjgyNywiaWF0IjoxNzA1MzYxMDI3fQ.lGGNbs6wd5PRYZX7c38lYc6B-QAmJhOBBI8IbhbUJwCjIdPm1BmIT3PDALK86U6hsSSWVDbP1mFoLhi2slW_NgJQUINqFGXxcwsOmXM-NBc63L_bgJi6DYYZuj2nDxyjqIHGJmpv3FjB4Oig93JoiZHVsEfp8SUhGAlK79dIqfJUBmjwMTg8uKoqcmA4FkrSedZHOXeOd7YhcaUXZJO987z9MOaqHgD0cfdnAwBxfdbp1CZfHFjC4Wou6pcOTuNYaplC1QeCO5ksK2X_LT8cXpkSaTeNLa72KB1_HtfNR6RnwyK96WlXh_NhEp0EAkj40NzNhqizNB5jp3BH6awWRg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/transactions-business-api/transactions/v1/findAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-business-api",
+										"transactions",
+										"v1",
+										"findAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find By Transaction Id",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNjEwMjcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MjgyNywiaWF0IjoxNzA1MzYxMDI3fQ.lGGNbs6wd5PRYZX7c38lYc6B-QAmJhOBBI8IbhbUJwCjIdPm1BmIT3PDALK86U6hsSSWVDbP1mFoLhi2slW_NgJQUINqFGXxcwsOmXM-NBc63L_bgJi6DYYZuj2nDxyjqIHGJmpv3FjB4Oig93JoiZHVsEfp8SUhGAlK79dIqfJUBmjwMTg8uKoqcmA4FkrSedZHOXeOd7YhcaUXZJO987z9MOaqHgD0cfdnAwBxfdbp1CZfHFjC4Wou6pcOTuNYaplC1QeCO5ksK2X_LT8cXpkSaTeNLa72KB1_HtfNR6RnwyK96WlXh_NhEp0EAkj40NzNhqizNB5jp3BH6awWRg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3001/transactions-business-api/transactions/v1/findById?transactionId=9999000",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-business-api",
+										"transactions",
+										"v1",
+										"findById"
+									],
+									"query": [
+										{
+											"key": "transactionId",
+											"value": "9999000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Pageable",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNjEwMjcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MjgyNywiaWF0IjoxNzA1MzYxMDI3fQ.lGGNbs6wd5PRYZX7c38lYc6B-QAmJhOBBI8IbhbUJwCjIdPm1BmIT3PDALK86U6hsSSWVDbP1mFoLhi2slW_NgJQUINqFGXxcwsOmXM-NBc63L_bgJi6DYYZuj2nDxyjqIHGJmpv3FjB4Oig93JoiZHVsEfp8SUhGAlK79dIqfJUBmjwMTg8uKoqcmA4FkrSedZHOXeOd7YhcaUXZJO987z9MOaqHgD0cfdnAwBxfdbp1CZfHFjC4Wou6pcOTuNYaplC1QeCO5ksK2X_LT8cXpkSaTeNLa72KB1_HtfNR6RnwyK96WlXh_NhEp0EAkj40NzNhqizNB5jp3BH6awWRg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\"page_number\": 1,\r\n\"page_size\": 10,\r\n\"page_sort_field\": \"transactionId\",\r\n\"page_sort_order\": \"ASC\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/transactions-business-api/transactions/v1/findByPageable",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-business-api",
+										"transactions",
+										"v1",
+										"findByPageable"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Filters (and Pageable)",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ4NXQjUzI1NiI6ImNDTVFPVFMwQnZNWFctVzYweXhjOGN5ZElsYUV5bDktWVd4dkZyTDI2cUUiLCJraWQiOiJjaGFsbGVuZ2UiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJhZG1pbi1tYXN0ZXIiLCJhdWQiOiJhZG1pbi1tYXN0ZXIiLCJuYmYiOjE3MDUzNjEwMjcsInNjb3BlIjpbImNsaWVudC5yb290IiwiY2xpZW50LnJlYWQiLCJjbGllbnQud3JpdGUiXSwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjMwMDFcL2F1dGhlbnRpY2F0aW9uLXNlcnZlciIsImV4cCI6MTcwNTM2MjgyNywiaWF0IjoxNzA1MzYxMDI3fQ.lGGNbs6wd5PRYZX7c38lYc6B-QAmJhOBBI8IbhbUJwCjIdPm1BmIT3PDALK86U6hsSSWVDbP1mFoLhi2slW_NgJQUINqFGXxcwsOmXM-NBc63L_bgJi6DYYZuj2nDxyjqIHGJmpv3FjB4Oig93JoiZHVsEfp8SUhGAlK79dIqfJUBmjwMTg8uKoqcmA4FkrSedZHOXeOd7YhcaUXZJO987z9MOaqHgD0cfdnAwBxfdbp1CZfHFjC4Wou6pcOTuNYaplC1QeCO5ksK2X_LT8cXpkSaTeNLa72KB1_HtfNR6RnwyK96WlXh_NhEp0EAkj40NzNhqizNB5jp3BH6awWRg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"page_settings\": {\r\n    \"page_number\": 1,\r\n    \"page_size\": 10,\r\n    \"page_sort_field\": \"transactionId\",\r\n    \"page_sort_order\": \"ASC\"\r\n  },\r\n  \"transactionStatus\": \"ESTORNADA\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3001/transactions-business-api/transactions/v1/findByFilters",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3001",
+									"path": [
+										"transactions-business-api",
+										"transactions",
+										"v1",
+										"findByFilters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

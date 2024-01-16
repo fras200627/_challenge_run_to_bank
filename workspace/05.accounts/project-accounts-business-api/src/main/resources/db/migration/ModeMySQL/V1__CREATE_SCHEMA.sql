@@ -1,0 +1,4 @@
+-- Create schema and Admin User
+CREATE SCHEMA IF NOT EXISTS CHALLENGE;
+create user if not exists CHALLENGE_USER password '123456' admin;
+GRANT ALL ON SCHEMA CHALLENGE TO CHALLENGE_USER;

@@ -1,0 +1,42 @@
+server:
+  port: ${API_GATEWAY_INTERNAL_PORT:5001}
+
+#########################################################
+app:
+  environment: ${PROFILE_ACTIVE:dev}
+  app_info:
+    name: API Gateway
+    title: Project Challenge API Gateway
+    version: ${API_VERSION:Snapshot.0.0.1}
+    build: ${API_BUILD:v.2024}
+
+#########################################################
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+
+#########################################################
+eureka:
+  instance:
+    hostname: service-discovery
+    instance-id: ${spring.application.name}:${random.int}
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://${SERVICE_DISCOVERY_HOST_NAME:service-discovery}:${SERVICE_DISCOVERY_EXPOSE_PORT:5000}/eureka
+
+#########################################################
+logging:
+  level:
+    com:
+      challenge: ${API_LOGGING_LEVEL:error}
+    org:
+      springframework: ${API_LOGGING_LEVEL:error}

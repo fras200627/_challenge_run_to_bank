@@ -1,0 +1,60 @@
+server:
+  port: ${AUTHENTICATION_SERVER_INTERNAL_PORT:0}
+
+#########################################################
+app:
+  environment: ${PROFILE_ACTIVE:dev}
+  app_info:
+    name: Authentication Server
+    title: Project Challenge Authentication Server
+    version: ${API_VERSION:1.0.0}
+    build: ${API_BUILD:v.2024}
+
+#########################################################
+spring:
+  application:
+    name: authentication-server
+  session:
+    store-type: jdbc
+  security:
+    filter:
+      dispatcher-types: request
+    auth:
+      provider-uri: http://${AUTHENTICATION_SERVER_HOST_NAME:api-gateway}:${API_GATEWAY_EXPOSE_PORT:5001}/authentication-server
+      jks:
+        keypass: ${AUTH_JKS_KEYPASS:123456}
+        storepass: ${AUTH_JKS_STOREPASS:123456}
+        alias: ${AUTH_JKS_ALIAS:challenge}
+        path: ${AUTH_JKS_PATH:keystore/challenge.jks}
+
+#########################################################
+eureka:
+  instance:
+    hostname: service-discovery
+    instance-id: ${spring.application.name}:${random.int}
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    serviceUrl:
+      defaultZone: http://${SERVICE_DISCOVERY_HOST_NAME:service-discovery}:${SERVICE_DISCOVERY_EXPOSE_PORT:5000}/eureka
+
+#########################################################
+resilience4j:
+  circuitBreaker:
+    instances:
+      securityDomain:
+        waitDurationInOpenState: 50s
+        minimumNumberOfCalls: 2
+        slidingWindowSize: 3
+
+#########################################################
+logging:
+  level:
+    com:
+      challenge: ${API_LOGGING_LEVEL:error}
+    org:
+      springframework: ${API_LOGGING_LEVEL:error}
+
+#########################################################
+    

@@ -1,0 +1,34 @@
+server:
+  port: ${SERVICE_DISCOVERY_EXPOSE_PORT:8000}
+
+#########################################################
+app:
+  environment: ${PROFILE_ACTIVE:prod}
+  app_info:
+    name: Challenge Service Discovery
+    title: Project Challenge Run the Bank Service Discovery
+    version: ${API_VERSION:Snapshot.0.0.1}
+    build: ${API_BUILD:v.2024}
+
+#########################################################
+spring:
+  application:
+    name: service-discovery
+
+#########################################################
+eureka:
+  instance:
+    hostname: discovery-service
+    instance-id: ${spring.application.name}:${random.int}
+    prefer-ip-address: true
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
+#########################################################
+logging:
+  level:
+    com:
+      challenge: ${API_LOGGING_LEVEL:error}
+    org:
+      springframework: ${API_LOGGING_LEVEL:error}
