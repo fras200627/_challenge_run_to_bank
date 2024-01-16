@@ -39,6 +39,17 @@ NO POSTMAN JÁ EXISTE UM REQUEST DESSE SERVIÇO.
 
 ** OS TOKENS SÃO GERADOS COM TEMPO LIMITE DE 30 MINUTOS.
 
+
+*********
+O SERVICE DISCOVERY FICA NO LINK
+    
+    http://localhost:3000
+    
+A API GATEWAY FICA NO LINK
+
+    http://localhost/3001
+*******
+
 ```
 
 ## Estrutura do Projeto Challenge Run the Bank

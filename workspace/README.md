@@ -167,7 +167,18 @@ Os projetos dos serviços cloud e security estão nas pastas:
 ```
 ..\_challenge_run_the_bank\workspace\01.cloud
 ..\_challenge_run_the_bank\workspace\02.authentication.server
-```
+
+*********
+O SERVICE DISCOVERY FICA NO LINK
+    
+    http://localhost:3000
+    
+A API GATEWAY FICA NO LINK
+
+    http://localhost/3001
+*******
+
+``````
 
 ### Diretórios das APIs
 Os projetos das APIs ficam nas pastas:
