@@ -24,11 +24,21 @@ já traz todos os processos de RUN e Debug.
 Sequência de subida dos serviços:
 
 Service Discovery
+Autehntication Server
 API-Gateway
 APIs de Branchs
 APIs de Customers
 APIs de Accounts
 APIs de Transactions
+
+IMPORTANTE:
+AS APIs SÓ FUNCIONAM COM TOKENS VÁLIDOS NA AUTENTICAÇÃO.
+PARA GERAR UM TOKEN USE O SERVIÇO DE Get Token JWT DO
+AUTHENTICATION SERVER.
+NO POSTMAN JÁ EXISTE UM REQUEST DESSE SERVIÇO.
+
+** OS TOKENS SÃO GERADOS COM TEMPO LIMITE DE 30 MINUTOS.
+
 ```
 
 ## Estrutura do Projeto Challenge Run the Bank
