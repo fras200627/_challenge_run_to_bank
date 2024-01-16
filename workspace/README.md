@@ -47,7 +47,7 @@ Todas as APIs de DOMAIN SERVICES possuem validação dos payloads recebidos<br>
 Toda as APIs BUSINESS SERVICES possuem servicos de: FindById, FindAll, FindByPageable e 
 FindByFilters (com reccursos de Pageable e filtros dinâmicos)  
 
-## Tecnologias ugtilizadas
+## Tecnologias Utilizadas
 - **Java JDK 17**
 - **Spring Boot 2.7.15**
 - **Spring Web**
